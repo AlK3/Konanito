@@ -8,8 +8,11 @@ interface IItemProps {
 }
 
 export const Item: React.FC<IItemProps> = ({item}) => {
+  const url = item.url.replace('https://myanimelist.net/', '');
+  const link = url.split('/');
+
 	return (
-		<StyledItem to={`/${item.title}`}>
+		<StyledItem to={`/${link[1]}`}>
 			<Typography>{item.rank}</Typography>
 			<img src={item.image_url} width='80rem' />
       <div>

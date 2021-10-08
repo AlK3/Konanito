@@ -14,18 +14,60 @@ export class TopListItem {
   score!: number;
 }
 
-interface ITopData {
+interface IData {
   topData: {
     request_hash: string;
     request_cached: boolean;
     request_cache_expiry: number;
     top: TopListItem[];
-  }
+  };
+  titleData: {
+    aired: {};
+    airing: boolean;
+    broadcast: string;
+    demographics: [];
+    duration: string;
+    ending_themes: [];
+    episodes: number;
+    explicit_genres: [];
+    external_links: [];
+    favorites: number;
+    genres: [];
+    image_url: string;
+    licensors: [];
+    mal_id: number;
+    members: number;
+    opening_themes: [];
+    popularity: number;
+    premiered: string;
+    producers: [];
+    rank: number;
+    rating: string;
+    related: {};
+    request_cache_expiry: number;
+    request_cached: boolean;
+    request_hash: string;
+    score: number;
+    scored_by: number;
+    source: string;
+    status: string;
+    studios: [];
+    synopsis: string;
+    themes: [];
+    title: string;
+    title_english: string;
+    title_japanese: string;
+    title_synonyms: [];
+    trailer_url: string;
+    type: string;
+    url: string;
+  };
 }
 
 const initialState = {
   topData: {},
-} as ITopData
+  titleData: {},
+} as IData
 
 export const dataSlice = createSlice({
   name: 'data',
@@ -34,8 +76,11 @@ export const dataSlice = createSlice({
     updateTopData(state, action) {
       state.topData = action.payload;
     },
+    updateTitleData(state, action) {
+      state.titleData = action.payload;
+    },
   }
 });
 
-export const { updateTopData } = dataSlice.actions;
+export const { updateTopData, updateTitleData } = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

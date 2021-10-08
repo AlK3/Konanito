@@ -13,7 +13,7 @@ export const App: React.FC = () => {
         <Route path='/home' component={HomePage} />
         <Route path='/about' component={AboutPage} />
         <Route path='/top' component={TopListPage} />
-        <Route path='/:titleName' component={TitlePage} />
+        <Route path='/:titleId' component={TitlePage} />
         <Redirect to='/home' />
       </Switch>
     </Router>
