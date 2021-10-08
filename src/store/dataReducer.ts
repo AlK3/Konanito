@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-class TopList {
+export class TopListItem {
   mal_id!: number;
   rank!: number;
   title!: string;
@@ -19,7 +19,7 @@ interface ITopData {
     request_hash: string;
     request_cached: boolean;
     request_cache_expiry: number;
-    top: TopList[];
+    top: TopListItem[];
   }
 }
 
