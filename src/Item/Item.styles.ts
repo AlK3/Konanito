@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Color } from '../consts';
+import { Link } from 'react-router-dom';
+import { Color } from '../enums';
 
 export const StyledItem = styled(Link)`
   display: flex;
-  margin: 1rem;
-  border: .1rem solid ${Color.ORANGE};
-  border-radius: .625rem;
+  margin: 16px;
+  border: 2px solid ${Color.ORANGE};
+  border-radius: 10px;
   text-decoration: none;
   color: black;
   :link, :visited, :focus {

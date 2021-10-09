@@ -1,6 +1,6 @@
 import * as Eff from 'redux-saga/effects';
 import { call, put } from '@redux-saga/core/effects';
-import { Action } from '../consts';
+import { Action } from '../enums';
 import { updateTopData } from './dataReducer';
 
 const takeEvery: any = Eff.takeEvery;

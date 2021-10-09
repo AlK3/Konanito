@@ -1,13 +1,13 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { List } from '../components/List/List';
 import { Paginator } from '../Paginator/Paginator';
+import { Heading } from '../Heading/Heading';
 
 export const TopListPage: React.FC = () => {
   
   return (
     <>
-      <Typography variant='h6'>Top anime</Typography>
+      <Heading size={18}>Top anime</Heading>
       <List />
       <Paginator />
     </>

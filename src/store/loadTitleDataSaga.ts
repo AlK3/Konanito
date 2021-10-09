@@ -1,7 +1,7 @@
 import * as Eff from 'redux-saga/effects';
 import { call, put } from '@redux-saga/core/effects';
-import { Action } from '../consts';
-import { updateTitleData } from './dataReducer';
+import { Action } from '../enums';
+import { updateTitleData, updateTranslateData } from './dataReducer';
 
 const takeEvery: any = Eff.takeEvery;
 
@@ -15,10 +15,11 @@ function fetchTopData(id: string) {
 }
 
 function* workerLoadTitleData({ id }: ILoadTitleDataProps): Generator {
+  yield put(updateTranslateData(''));
   const titleData = yield call(fetchTopData, id);
   yield put(updateTitleData(titleData));
 }
 
 export function* watchLoadTitleData() {
-  yield takeEvery(Action.LOAD_TOP_DATA, workerLoadTitleData);
+  yield takeEvery(Action.LOAD_TITLE_DATA, workerLoadTitleData);
 }

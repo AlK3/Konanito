@@ -1,4 +1,4 @@
-import { Action } from "../consts";
+import { Action } from "../enums";
 
 export const loadTopData = (page: number) => {
   return {
@@ -9,7 +9,14 @@ export const loadTopData = (page: number) => {
 
 export const loadTitleData = (id: string) => {
   return {
-    type: Action.LOAD_TOP_DATA,
+    type: Action.LOAD_TITLE_DATA,
     id,
+  };
+}
+
+export const loadTranslateData = (text: string) => {
+  return {
+    type: Action.LOAD_TRANSLATE_DATA,
+    text,
   };
 }

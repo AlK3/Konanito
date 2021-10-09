@@ -62,11 +62,17 @@ interface IData {
     type: string;
     url: string;
   };
+  translateData: {
+    translatedText: string;
+  };
 }
 
 const initialState = {
   topData: {},
   titleData: {},
+  translateData: {
+    translatedText: '',
+  },
 } as IData
 
 export const dataSlice = createSlice({
@@ -79,8 +85,11 @@ export const dataSlice = createSlice({
     updateTitleData(state, action) {
       state.titleData = action.payload;
     },
+    updateTranslateData(state, action) {
+      state.translateData = action.payload;
+    },
   }
 });
 
-export const { updateTopData, updateTitleData } = dataSlice.actions;
+export const { updateTopData, updateTitleData, updateTranslateData } = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;
