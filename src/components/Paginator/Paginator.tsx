@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { StyledPaginator } from './Paginator.styles';
 import { Button, Typography } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadTopData } from '../store/loadData';
-import { updatePage } from '../store/pageReducer';
-import { RootState } from '../store/store';
+import { loadTopData } from '../../store/loadData';
+import { updatePage } from '../../store/pageReducer';
+import { RootState } from '../../store/store';
 
 export const Paginator: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Color } from '../enums';
+import { Color } from '../../enums';
 
 export const StyledItem = styled(Link)`
   display: flex;

@@ -8,8 +8,8 @@ export const translateSlice = createSlice({
   name: 'translate',
   initialState: initialState,
   reducers: {
-    setTranslate(state) {
-      state.translate = !state.translate;
+    setTranslate(state, action) {
+      state.translate = action.payload;
     },
   }
 });

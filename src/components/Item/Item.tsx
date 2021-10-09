@@ -1,7 +1,8 @@
 import React from 'react';
-import { TopListItem } from '../store/dataReducer';
 import { StyledItem } from './Item.styles';
 import { Typography } from '@material-ui/core';
+import { TopListItem } from '../../store/dataReducer';
+import { Paragraph } from '../Paragraph/Paragraph';
 
 interface IItemProps {
   item: TopListItem;
@@ -13,15 +14,15 @@ export const Item: React.FC<IItemProps> = ({item}) => {
 
 	return (
 		<StyledItem to={`/${link[1]}`}>
-			<Typography>{item.rank}</Typography>
+			<Paragraph>{item.rank}</Paragraph>
 			<img src={item.image_url} width='80rem' />
       <div>
-        <Typography>
+        <Paragraph>
           {item.title}
-        </Typography>
-        <Typography>
+        </Paragraph>
+        <Paragraph>
           {item.type + ' ' + item.episodes + ' episodes'}
-        </Typography>
+        </Paragraph>
       </div>
 		</StyledItem>
 	);

@@ -2,6 +2,7 @@ import * as Eff from 'redux-saga/effects';
 import { call, put } from '@redux-saga/core/effects';
 import { Action } from '../enums';
 import { updateTitleData, updateTranslateData } from './dataReducer';
+import { setTranslate } from './translateReducer';
 
 const takeEvery: any = Eff.takeEvery;
 
@@ -15,6 +16,7 @@ function fetchTopData(id: string) {
 }
 
 function* workerLoadTitleData({ id }: ILoadTitleDataProps): Generator {
+  yield put(setTranslate(false));
   yield put(updateTranslateData(''));
   const titleData = yield call(fetchTopData, id);
   yield put(updateTitleData(titleData));

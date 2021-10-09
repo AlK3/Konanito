@@ -2,7 +2,8 @@ import { Button, Typography } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Heading } from '../Heading/Heading';
+import { Main } from '../components/Main/Main';
+import { Heading } from '../components/Heading/Heading';
 import { loadTitleData, loadTranslateData } from '../store/loadData';
 import { RootState } from '../store/store';
 import { setTranslate } from '../store/translateReducer';
@@ -21,20 +22,25 @@ export const TitlePage: React.FC = () => {
 	function translateHandler(text: string): void {
 		if (!translateData?.translatedText?.trim())
 			dispatch(loadTranslateData(text));
-		dispatch(setTranslate());
+		dispatch(setTranslate(!translate));
 	}
 
 	return (
-		<>
+		<Main>
 			<Heading size={18}>{titleData.title_english}</Heading>
 			<Typography component='p'>
 					{translate ? 
 						translateData?.translatedText
 						:
 						titleData.synopsis
-					}
+					}			
 					<Button onClick={() => translateHandler(titleData.synopsis)}>Translate</Button>
 				</Typography>
-		</>
+				<iframe
+					width="640"
+					height="480"
+					src={titleData.trailer_url?.replace('autoplay=1', 'autoplay=0')}		
+				/>
+		</Main>
 	);
 }
