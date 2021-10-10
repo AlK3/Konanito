@@ -4,10 +4,12 @@ import { translateReducer } from "./translateReducer";
 import { dataReducer } from "./dataReducer";
 import { pageReducer } from "./pageReducer";
 import { rootSaga } from "./rootSaga";
+import { themeReducer } from "./themeReducer";
 
 const rootReducer = combineReducers({
   data: dataReducer,
   page: pageReducer,
+  theme: themeReducer,
   translate: translateReducer,
 });
 

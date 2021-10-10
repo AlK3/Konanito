@@ -7,6 +7,8 @@ import { Heading } from '../components/Heading/Heading';
 import { loadTitleData, loadTranslateData } from '../store/loadData';
 import { RootState } from '../store/store';
 import { setTranslate } from '../store/translateReducer';
+import { Header } from '../components/Header/Header';
+import { Paragraph } from '../components/Paragraph/Paragraph';
 
 export const TitlePage: React.FC = () => {
 	const dispatch = useDispatch();
@@ -26,21 +28,25 @@ export const TitlePage: React.FC = () => {
 	}
 
 	return (
-		<Main>
-			<Heading size={18}>{titleData.title_english}</Heading>
-			<Typography component='p'>
-					{translate ? 
-						translateData?.translatedText
-						:
-						titleData.synopsis
-					}			
-					<Button onClick={() => translateHandler(titleData.synopsis)}>Translate</Button>
-				</Typography>
-				<iframe
-					width="640"
-					height="480"
-					src={titleData.trailer_url?.replace('autoplay=1', 'autoplay=0')}		
-				/>
-		</Main>
+		<>
+			<Header />
+			<Main>
+				<div style={{marginTop: '4rem'}}></div>
+				<Heading size={18}>{titleData.title_english}</Heading>
+				<Paragraph>
+						{translate ? 
+							translateData?.translatedText
+							:
+							titleData.synopsis
+						}			
+						<Button onClick={() => translateHandler(titleData.synopsis)}>Translate</Button>
+					</Paragraph>
+					<iframe
+						width="640"
+						height="480"
+						src={titleData.trailer_url?.replace('autoplay=1', 'autoplay=0')}		
+					/>
+			</Main>
+		</>
 	);
 }

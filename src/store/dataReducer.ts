@@ -75,7 +75,7 @@ const initialState = {
   },
 } as IData
 
-export const dataSlice = createSlice({
+const dataSlice = createSlice({
   name: 'data',
   initialState: initialState,
   reducers: {
@@ -88,7 +88,7 @@ export const dataSlice = createSlice({
     updateTranslateData(state, action) {
       state.translateData = action.payload;
     },
-  }
+  },
 });
 
 export const { updateTopData, updateTitleData, updateTranslateData } = dataSlice.actions;

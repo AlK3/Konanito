@@ -4,14 +4,14 @@ const initialState = {
   topPage: 1,
 }
 
-export const pageSlice = createSlice({
+const pageSlice = createSlice({
   name: 'page',
   initialState: initialState,
   reducers: {
     updatePage(state, action) {
       state.topPage = action.payload;
     },
-  }
+  },
 });
 
 export const { updatePage } = pageSlice.actions;

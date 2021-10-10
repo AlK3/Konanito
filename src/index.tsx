@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { createGlobalStyle } from 'styled-components';
+import { Color } from './enums';
 
 const Global = createGlobalStyle`
   * {
@@ -14,6 +15,7 @@ const Global = createGlobalStyle`
   }
 
   body {
+    background-color: ${Color.BLACK};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;

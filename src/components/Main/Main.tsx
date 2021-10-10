@@ -7,7 +7,6 @@ interface IMainProps {
 
 export const Main: React.FC<IMainProps> = (props) => {
 
-
 	return (
     <StyledMain {...props} />
 	);

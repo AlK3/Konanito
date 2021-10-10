@@ -6,6 +6,8 @@ export enum Action {
 
 export enum Color {
   ORANGE = '#ea5321',
+  BLACK  = '#121212',
+  DARK   = '#1e1e1e',
 }
 
 export enum Size {
