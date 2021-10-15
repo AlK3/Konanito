@@ -1,24 +1,18 @@
+import React from 'react';
 import { Skeleton } from '@material-ui/core';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Color } from '../../enums';
-import { loadTopData } from '../../store/loadData';
-import { RootState } from '../../store/store';
 import { Item } from '../Item/Item';
 
-export const List: React.FC = () => {
-	const dispatch = useDispatch();
-  const topPage = useSelector((state: RootState) => state.page.topPage);
-	const topData = useSelector((state: RootState) => state.data.topData);
-  
-  useEffect(() => {
-    dispatch(loadTopData(topPage));
-  }, []);
+interface IListProps {
+  items: any[];
+}
+
+export const List: React.FC<IListProps> = ({items}) => {
 
 	return (
 		<>
-			{topData.top?
-				topData.top.map(item => {
+			{items ?
+				items.map(item => {
         	return <Item item={item} />;
       	})
 				:

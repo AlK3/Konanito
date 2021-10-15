@@ -14,7 +14,7 @@ export const Item: React.FC<IItemProps> = ({item}) => {
 
 	return (
 		<StyledItem to={`/${link[1]}`}>
-			<Paragraph>{item.rank}</Paragraph>
+			{item.rank && <Paragraph>{item.rank}</Paragraph>}
 			<img src={item.image_url} width='80rem' />
       <div>
         <Paragraph>
@@ -23,7 +23,7 @@ export const Item: React.FC<IItemProps> = ({item}) => {
         <Paragraph>
           {item.type + ' ' + item.episodes + ' episodes'}
         </Paragraph>
-        <Rating name="no-value" value={5} />
+        <Rating name="no-value" value={item.score/2} />
       </div>
 		</StyledItem>
 	);

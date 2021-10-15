@@ -8,6 +8,7 @@ import { ButtonContained } from '../components/Button/Button.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadSearchData } from '../store/loadData';
 import { RootState } from '../store/store';
+import { List } from '../components/List/List';
 
 export const SearchPage: React.FC = () => {
 	const dispatch = useDispatch();
@@ -199,7 +200,7 @@ export const SearchPage: React.FC = () => {
 						</Grid>
 					</Grid>
 				</form>
-				{JSON.stringify(searchData, null, 2)}
+				<List items={searchData.results} />
 			</Main>
 		</>
 	);
