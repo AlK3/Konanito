@@ -15,13 +15,14 @@ export const Header: React.FC = () => {
 
 	const submitHandler = (event: React.SyntheticEvent) => {
 		event.preventDefault();
-		console.log("A");
+
     const target = event.target as typeof event.target & {
 			titleId: { value: string };
 		};
+    
     if (target.titleId.value.trim()) {
       history.push('/search');
-      dispatch(loadSearchData(target.titleId.value));
+      dispatch(loadSearchData(`q=${target.titleId.value}`));
     }
 	}
 
