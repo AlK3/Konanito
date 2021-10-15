@@ -15,7 +15,7 @@ export const Item: React.FC<IItemProps> = ({item}) => {
 	return (
 		<StyledItem to={`/${link[1]}`}>
 			{item.rank && <Paragraph>{item.rank}</Paragraph>}
-			<img src={item.image_url} width='80rem' />
+			<img src={item.image_url} style={{width: '8rem', padding: '.4rem'}} />
       <div>
         <Paragraph>
           {item.title}

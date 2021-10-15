@@ -10,7 +10,7 @@ export const StyledItem = styled(Link)`
   text-decoration: none;
   color: black;
   :link, :visited, :focus {
-    background: ${Color.DARK};
+    background: ${Color.WHITE};
   }
   :hover {
     background: ${Color.ORANGE};

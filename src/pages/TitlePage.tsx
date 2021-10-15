@@ -1,4 +1,3 @@
-import { Button, Typography } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,6 +9,9 @@ import { setTranslate } from '../store/translateReducer';
 import { Header } from '../components/Header/Header';
 import { Paragraph } from '../components/Paragraph/Paragraph';
 import { Spacer } from '../components/Spacer/Spacer.styles';
+import { Box } from '@material-ui/system';
+import { ButtonText } from '../components/Button/Button.styles';
+import { Paper } from '@material-ui/core';
 
 export const TitlePage: React.FC = () => {
 	const dispatch = useDispatch();
@@ -34,19 +36,32 @@ export const TitlePage: React.FC = () => {
 			<Main>
 				<Spacer />
 				<Heading size={18}>{titleData.title_english}</Heading>
-				<Paragraph>
-						{translate ? 
-							translateData?.translatedText
-							:
-							titleData.synopsis
-						}			
-						<Button onClick={() => translateHandler(titleData.synopsis)}>Translate</Button>
-					</Paragraph>
-					<iframe
-						width="640"
-						height="480"
-						src={titleData.trailer_url?.replace('autoplay=1', 'autoplay=0')}		
-					/>
+					<Box style={{display: 'flex'}}>
+						<Box style={{display: 'flex', flexDirection: 'column'}}>
+							<img src={titleData.image_url} style={{width: '12rem', padding: '.4rem'}} />
+						</Box>
+						<Box style={{display: 'flex', flexDirection: 'column'}}>
+							<Box style={{display: 'flex'}}>
+								<Paper style={{flexGrow: 1}} elevation={0}>
+									{titleData.score + ' score ' + titleData.rank + ' rank ' + titleData.popularity + ' popularity ' + titleData.members + ' members'}
+								</Paper>
+								<iframe
+										width='240'
+										height='160'
+										src={titleData.trailer_url?.replace('autoplay=1', 'autoplay=0')}		
+										/>
+							</Box>
+							<Heading size={12}>Synopsis</Heading>
+							<Paragraph>
+								{translate ? 
+									translateData?.translatedText
+									:
+									titleData.synopsis
+								}			
+								<ButtonText onClick={() => translateHandler(titleData.synopsis)}>Translate</ButtonText>
+							</Paragraph>
+						</Box>
+					</Box>
 			</Main>
 		</>
 	);

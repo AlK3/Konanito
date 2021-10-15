@@ -20,8 +20,9 @@ export const Header: React.FC = () => {
 			titleId: { value: string };
 		};
     
+    history.push('/search');
+    
     if (target.titleId.value.trim()) {
-      history.push('/search');
       dispatch(loadSearchData(`q=${target.titleId.value}`));
     }
 	}

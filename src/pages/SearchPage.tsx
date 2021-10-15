@@ -147,6 +147,7 @@ export const SearchPage: React.FC = () => {
 								label="Page"
 								type="number"
 								size='small'
+								InputProps={{inputProps: {min: 1,}}}
 								/>
 						</Grid>
 
