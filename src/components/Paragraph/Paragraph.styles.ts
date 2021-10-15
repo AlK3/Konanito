@@ -1,11 +1,12 @@
 import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import { Size } from '../../enums';
+import { SizePX } from '../../enums';
+import { Color } from '../../enums';
 
 export const StyledParagraph = styled(Typography)`
   && {
-    font-size: calc(14px + (16 - 10) * ((100vw - ${Size.mobileS}) / (1600 - 320)));
+    font-size: calc(14px + (16 - 10) * ((100vw - ${SizePX.mobileS}) / (1600 - 320)));
     margin: 6px;
-    color: #ffffff;
+    color: ${Color.DARK};
   }
 `;

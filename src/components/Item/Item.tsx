@@ -2,6 +2,7 @@ import React from 'react';
 import { StyledItem } from './Item.styles';
 import { TopListItem } from '../../store/dataReducer';
 import { Paragraph } from '../Paragraph/Paragraph';
+import { Rating } from '@material-ui/core';
 
 interface IItemProps {
   item: TopListItem;
@@ -22,6 +23,7 @@ export const Item: React.FC<IItemProps> = ({item}) => {
         <Paragraph>
           {item.type + ' ' + item.episodes + ' episodes'}
         </Paragraph>
+        <Rating name="no-value" value={5} />
       </div>
 		</StyledItem>
 	);

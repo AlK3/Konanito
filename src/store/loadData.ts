@@ -14,6 +14,13 @@ export const loadTitleData = (id: string) => {
   };
 }
 
+export const loadSearchData = (request: string) => {
+  return {
+    type: Action.LOAD_SEARCH_DATA,
+    request
+  };
+}
+
 export const loadTranslateData = (text: string) => {
   return {
     type: Action.LOAD_TRANSLATE_DATA,

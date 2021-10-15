@@ -4,6 +4,7 @@ import { Paginator } from '../components/Paginator/Paginator';
 import { Heading } from '../components/Heading/Heading';
 import { Main } from '../components/Main/Main';
 import { Header } from '../components/Header/Header';
+import { Spacer } from '../components/Spacer/Spacer.styles';
 
 export const TopListPage: React.FC = () => {
   
@@ -11,7 +12,7 @@ export const TopListPage: React.FC = () => {
     <>
       <Header />
       <Main>
-				<div style={{marginTop: '4rem'}}></div>
+        <Spacer />
         <Heading size={18}>Top anime</Heading>
         <List />
         <Paginator />

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { Size } from '../../enums';
-
+import { SizePX } from '../../enums';
+import { Color } from '../../enums';
 
 interface IHeadingProps {
   size: number;
 }
 
 export const StyledHeading = styled.h6<IHeadingProps>`
-  font-size: calc(${props => props.size}px + (32 - 18) * ((100vw - ${Size.mobileS}) / (1600 - 320)));
+  font-size: calc(${props => props.size}px + (32 - 18) * ((100vw - ${SizePX.mobileS}) / (1600 - 320)));
+  color: ${Color.DARK};
 `;

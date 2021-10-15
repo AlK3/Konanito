@@ -4,18 +4,20 @@ import { TopListPage } from './pages/TopListPage';
 import { TitlePage } from './pages/TitlePage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
+import { SearchPage } from './pages/SearchPage';
 
 export const App: React.FC = () => {
   
   return (
     <Router>
-      <Switch>
-        <Route path='/home' component={HomePage} />
-        <Route path='/about' component={AboutPage} />
-        <Route path='/top' component={TopListPage} />
-        <Route path='/:titleId' component={TitlePage} />
-        <Redirect to='/home' />
-      </Switch>
+        <Switch>
+          <Route path='/home' component={HomePage} />
+          <Route path='/about' component={AboutPage} />
+          <Route path='/top' component={TopListPage} />
+          <Route path='/search' component={SearchPage} />
+          <Route path='/:titleId' component={TitlePage} />
+          <Redirect to='/home' />
+        </Switch>
     </Router>
   );
 }

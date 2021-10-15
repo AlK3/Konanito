@@ -1,17 +1,36 @@
 import React from 'react';
-import { Toolbar } from '@material-ui/core';
+import { TextField, Toolbar } from '@material-ui/core';
 import { StyledHeader } from './Header.styles';
 import { ButtonContained } from '../Button/Button.styles';
 import { Link } from 'react-router-dom';
+import { Size } from '../../enums';
+import MediaQuery from 'react-responsive';
+import { useDispatch } from 'react-redux';
+import { loadSearchData } from '../../store/loadData';
+import { useHistory } from "react-router-dom";
 
 export const Header: React.FC = () => {
-  
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+	const submitHandler = (event: React.SyntheticEvent) => {
+		event.preventDefault();
+		console.log("A");
+    const target = event.target as typeof event.target & {
+			titleId: { value: string };
+		};
+    if (target.titleId.value.trim()) {
+      history.push('/search');
+      dispatch(loadSearchData(target.titleId.value));
+    }
+	}
+
   return (
     <StyledHeader>
       <Toolbar style={{justifyContent: 'space-evenly'}}>
         <div>
           <Link to='/home'>
-            <ButtonContained>
+            <ButtonContained color='primary'>
               Home
             </ButtonContained>
           </Link>
@@ -25,7 +44,22 @@ export const Header: React.FC = () => {
               Top
             </ButtonContained>
           </Link>
+          <MediaQuery maxWidth={Size.laptop}>
+            <Link to='/search'>
+              <ButtonContained>
+                Search
+              </ButtonContained>
+            </Link>
+          </MediaQuery>
         </div>
+        <MediaQuery minWidth={Size.laptop}>
+          <form onSubmit={submitHandler} style={{display: 'flex', alignItems: 'center'}}>
+            <TextField name='titleId' label='Search title' variant='outlined' size='small' />
+            <ButtonContained type='submit'>
+              Search
+            </ButtonContained>
+          </form>
+        </MediaQuery>
       </Toolbar>
     </StyledHeader>
   );

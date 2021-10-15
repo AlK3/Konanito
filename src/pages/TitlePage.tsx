@@ -9,6 +9,7 @@ import { RootState } from '../store/store';
 import { setTranslate } from '../store/translateReducer';
 import { Header } from '../components/Header/Header';
 import { Paragraph } from '../components/Paragraph/Paragraph';
+import { Spacer } from '../components/Spacer/Spacer.styles';
 
 export const TitlePage: React.FC = () => {
 	const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export const TitlePage: React.FC = () => {
 		<>
 			<Header />
 			<Main>
-				<div style={{marginTop: '4rem'}}></div>
+				<Spacer />
 				<Heading size={18}>{titleData.title_english}</Heading>
 				<Paragraph>
 						{translate ? 

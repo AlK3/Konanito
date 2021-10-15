@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import { Button } from '@material-ui/core';
-import { Color, Size } from '../../enums';
+import { Color, SizePX } from '../../enums';
 
 const StyledButton = styled(Button)`
   && {
     margin: .5rem;
     padding: ..1rem;
     font-size: 1rem;
-    color: ${Color.BLACK};
+    color: ${Color.DARK};
 
-    @media (max-width: ${Size.mobileL}) {
+    @media (max-width: ${SizePX.mobileL}) {
       font-size: .875rem;
     }
 
-    @media (max-width: ${Size.mobileM}) {
+    @media (max-width: ${SizePX.mobileM}) {
       font-size: .750rem;
     }
 
-    @media (max-width: ${Size.mobileS}) {
+    @media (max-width: ${SizePX.mobileS}) {
       font-size: .625rem;
     }
   }
@@ -25,18 +25,18 @@ const StyledButton = styled(Button)`
 
 export const ButtonContained = styled(StyledButton)`
   && {
-    background-color: ${Color.ORANGE};
+    background-color: ${Color.BLUE};
 
     :link, :visited, :focus {
-      background-color: ${Color.ORANGE};
+      background-color: ${Color.BLUE};
     }
 
     :hover {
-      background-color: #d65421;
+      background-color: ${Color.DBLUE};
     }
     
     :active {
-      background-color: #d65421;
+      background-color: ${Color.DBLUE};
     }
   }
 `;

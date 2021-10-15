@@ -14,6 +14,22 @@ export class TopListItem {
   score!: number;
 }
 
+export class SearchItem {
+  mal_id!: number;
+  url!: string;
+  image_url!: string;
+  title!: string;
+  airing!: boolean;
+  synopsis!: string;
+  type!: string;
+  episodes!: number;
+  score!: number;
+  start_date!: string;
+  end_date!: string;
+  members!: number;
+  rated!: string;
+}
+
 interface IData {
   topData: {
     request_hash: string;
@@ -62,6 +78,12 @@ interface IData {
     type: string;
     url: string;
   };
+  searchData: {
+    request_hash: string;
+    request_cached: boolean;
+    request_cache_expiry: number;
+    results: SearchItem[];
+  };
   translateData: {
     translatedText: string;
   };
@@ -70,6 +92,7 @@ interface IData {
 const initialState = {
   topData: {},
   titleData: {},
+  searchData: {},
   translateData: {
     translatedText: '',
   },
@@ -85,11 +108,14 @@ const dataSlice = createSlice({
     updateTitleData(state, action) {
       state.titleData = action.payload;
     },
+    updateSearchData(state, action) {
+      state.searchData = action.payload;
+    },
     updateTranslateData(state, action) {
       state.translateData = action.payload;
     },
   },
 });
 
-export const { updateTopData, updateTitleData, updateTranslateData } = dataSlice.actions;
+export const { updateTopData, updateTitleData, updateSearchData, updateTranslateData } = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

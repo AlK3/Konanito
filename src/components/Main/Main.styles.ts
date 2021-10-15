@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Size } from '../../enums';
+import { SizePX } from '../../enums';
 
 export const StyledMain = styled.main`
-  padding: calc(16px + (22 - 8) * ((100vw - ${Size.mobileS}) / (1600 - 320)));
+  padding: calc(16px + (22 - 8) * ((100vw - ${SizePX.mobileS}) / (1600 - 320)));
   padding-top: 26px;
   margin:0 auto;
   display: flex;
