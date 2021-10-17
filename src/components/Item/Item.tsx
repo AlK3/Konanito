@@ -9,11 +9,9 @@ interface IItemProps {
 }
 
 export const Item: React.FC<IItemProps> = ({item}) => {
-  const url = item.url.replace('https://myanimelist.net/', '');
-  const link = url.split('/');
-
+  
 	return (
-		<StyledItem to={`/${link[1]}`}>
+		<StyledItem to={`/${item.mal_id}`}>
 			{item.rank && <Paragraph>{item.rank}</Paragraph>}
 			<img src={item.image_url} style={{width: '8rem', padding: '.4rem'}} />
       <div>
