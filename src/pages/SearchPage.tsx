@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Main } from '../components/Main/Main';
 import { Heading } from '../components/Heading/Heading';
 import { Header } from '../components/Header/Header';
@@ -9,11 +9,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadSearchData } from '../store/loadData';
 import { RootState } from '../store/store';
 import { List } from '../components/List/List';
+import { updateReviewsPage } from '../store/pageReducer';
 
 export const SearchPage: React.FC = () => {
 	const dispatch = useDispatch();
 	const searchData = useSelector((state: RootState) => state.data.searchData);
 	
+	useEffect(() => {
+    dispatch(updateReviewsPage(1));
+  }, []);
+
 	const submitHandler = (event: React.SyntheticEvent) => {
 		event.preventDefault();
 		

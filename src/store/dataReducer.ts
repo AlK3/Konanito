@@ -30,6 +30,29 @@ export class SearchItem {
   rated!: string;
 }
 
+export class ReviewsItem {
+  mal_id!: number;
+  url!: string;
+  type!: {};
+  helpful_count!: number;
+  date!: string;
+  reviewer!: {
+    url: string;
+    image_url: string;
+    username: string;
+    episodes_seen: number;
+    scores: {
+      overall: number;
+      story: number;
+      animation: number;
+      sound: number;
+      character: number;
+      enjoyment: number;
+    };
+  };
+  content!: string;
+}
+
 interface IData {
   topData: {
     request_hash: string;
@@ -84,6 +107,12 @@ interface IData {
     request_cache_expiry: number;
     results: SearchItem[];
   };
+  reviewsData: {
+    request_hash: string;
+    request_cached: boolean;
+    request_cache_expiry: number;
+    reviews: ReviewsItem[];
+  };
   translateData: {
     translatedText: string;
   };
@@ -93,6 +122,7 @@ const initialState = {
   topData: {},
   titleData: {},
   searchData: {},
+  reviewsData: {},
   translateData: {
     translatedText: '',
   },
@@ -111,11 +141,14 @@ const dataSlice = createSlice({
     updateSearchData(state, action) {
       state.searchData = action.payload;
     },
+    updateReviewsData(state, action) {
+      state.reviewsData = action.payload;
+    },
     updateTranslateData(state, action) {
       state.translateData = action.payload;
     },
   },
 });
 
-export const { updateTopData, updateTitleData, updateSearchData, updateTranslateData } = dataSlice.actions;
+export const { updateTopData, updateTitleData, updateSearchData, updateReviewsData, updateTranslateData } = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

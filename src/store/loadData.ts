@@ -21,6 +21,14 @@ export const loadSearchData = (request: string) => {
   };
 }
 
+export const loadReviewsData = (page: number, titleId: string) => {
+  return {
+    type: Action.LOAD_REVIEWS_DATA,
+    page,
+    titleId,
+  };
+}
+
 export const loadTranslateData = (text: string) => {
   return {
     type: Action.LOAD_TRANSLATE_DATA,
