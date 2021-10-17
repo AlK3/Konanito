@@ -2,9 +2,10 @@ import React from 'react';
 import { Skeleton } from '@material-ui/core';
 import { Color } from '../../enums';
 import { Item } from '../Item/Item';
+import { TopListItem, SearchItem } from '../../store/dataReducer';
 
 interface IListProps {
-  items: any[];
+  items: TopListItem[] | SearchItem[];
 }
 
 export const List: React.FC<IListProps> = ({items}) => {

@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export class TopListItem {
+class DataItem {
   mal_id!: number;
-  rank!: number;
-  title!: string;
   url!: string;
+}
+
+export class TopListItem extends DataItem {
+  rank?: number;
+  title!: string;
   image_url!: string;
   type!: string;
   episodes!: number;
@@ -14,9 +17,7 @@ export class TopListItem {
   score!: number;
 }
 
-export class SearchItem {
-  mal_id!: number;
-  url!: string;
+export class SearchItem extends DataItem {
   image_url!: string;
   title!: string;
   airing!: boolean;
@@ -30,9 +31,7 @@ export class SearchItem {
   rated!: string;
 }
 
-export class ReviewsItem {
-  mal_id!: number;
-  url!: string;
+export class ReviewsItem extends DataItem {
   type!: {};
   helpful_count!: number;
   date!: string;
