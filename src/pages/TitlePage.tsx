@@ -51,10 +51,10 @@ export const TitlePage: React.FC = () => {
 				<Spacer />
 				<Heading size={18}>{titleData.title_english}</Heading>
 					<Box style={{display: 'flex'}}>
-						<Box style={{display: 'flex', flexDirection: 'column'}}>
+						<Box style={{display: 'flex', flexDirection: 'column', width: '20%',}}>
 							<img src={titleData.image_url} style={{width: '12rem', padding: '.4rem'}} />
 						</Box>
-						<Box style={{display: 'flex', flexDirection: 'column'}}>
+						<Box style={{display: 'flex', flexDirection: 'column', width: '80%',}}>
 							<Box style={{display: 'flex'}}>
 								<Paper style={{flexGrow: 1}} elevation={0}>
 									<Heading size={14}>
