@@ -1,9 +1,9 @@
 import createSagaMiddleware from "@redux-saga/core";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { translateReducer } from "./translateReducer";
-import { dataReducer } from "./dataReducer";
-import { pageReducer } from "./pageReducer";
-import { rootSaga } from "./rootSaga";
+import { translateReducer } from "./reducers/translateReducer";
+import { dataReducer } from "./reducers/dataReducer";
+import { pageReducer } from "./reducers/pageReducer";
+import { rootSaga } from "./sagas/rootSaga";
 
 const rootReducer = combineReducers({
   data: dataReducer,

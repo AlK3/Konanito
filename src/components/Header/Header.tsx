@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Size } from '../../enums';
 import MediaQuery from 'react-responsive';
 import { useDispatch } from 'react-redux';
-import { loadSearchData } from '../../store/loadData';
+import { loadSearchData } from '../../store/actions/loadData';
 import { useHistory } from "react-router-dom";
 
 export const Header: React.FC = () => {
@@ -30,7 +30,9 @@ export const Header: React.FC = () => {
   return (
     <StyledHeader>
       <Toolbar style={{justifyContent: 'space-evenly'}}>
-        <div>
+        <div style={{display: 'flex', flexWrap: 'nowrap'}}>
+          {
+          /*
           <Link to='/home'>
             <ButtonContained color='primary'>
               Home
@@ -41,6 +43,8 @@ export const Header: React.FC = () => {
               About
             </ButtonContained>
           </Link>
+          */
+          }
           <Link to='/top'>
             <ButtonContained>
               Top

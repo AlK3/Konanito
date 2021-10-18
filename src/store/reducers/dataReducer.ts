@@ -52,6 +52,26 @@ export class ReviewsItem extends DataItem {
   content!: string;
 }
 
+export class RecommendationsItem extends DataItem {
+  image_url!: string;
+  recommendation_count!: number;
+  recommendation_url!: string;
+  title!: string;
+  url!: string;
+}
+
+export class Episode {
+  aired!: string;
+	episode_id!: number;
+	filler!: boolean;
+	forum_url!: string;
+	recap!: boolean;
+	title!: string;
+	title_japanese!: string;
+	title_romanji!: string;
+	video_url!: string;
+}
+
 interface IData {
   topData: {
     request_hash: string;
@@ -62,6 +82,7 @@ interface IData {
   titleData: {
     aired: {};
     airing: boolean;
+    background: string;
     broadcast: string;
     demographics: [];
     duration: string;
@@ -112,8 +133,22 @@ interface IData {
     request_cache_expiry: number;
     reviews: ReviewsItem[];
   };
+  episodesData: {
+    episodes: Episode[];
+    length: number;
+    episodes_last_page: number;
+		request_cache_expiry: number;
+		request_cached: boolean;
+		request_hash: string;
+  }; 
   translateData: {
     translatedText: string;
+  };
+  recommendationsData: {
+    recommendations: RecommendationsItem[];
+    request_cache_expiry: number;
+		request_cached: boolean;
+		request_hash: string;
   };
 }
 
@@ -122,9 +157,11 @@ const initialState = {
   titleData: {},
   searchData: {},
   reviewsData: {},
+  episodesData: {}, 
   translateData: {
     translatedText: '',
   },
+  recommendationsData: {},
 } as IData
 
 const dataSlice = createSlice({
@@ -143,11 +180,17 @@ const dataSlice = createSlice({
     updateReviewsData(state, action) {
       state.reviewsData = action.payload;
     },
+    updateEpisodesData(state, action) {
+      state.episodesData = action.payload;
+    },
     updateTranslateData(state, action) {
       state.translateData = action.payload;
+    },
+    updateRecommendationsData(state, action) {
+      state.recommendationsData = action.payload;
     },
   },
 });
 
-export const { updateTopData, updateTitleData, updateSearchData, updateReviewsData, updateTranslateData } = dataSlice.actions;
+export const { updateTopData, updateTitleData, updateSearchData, updateReviewsData, updateEpisodesData, updateTranslateData, updateRecommendationsData } = dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

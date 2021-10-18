@@ -7,8 +7,8 @@ import { Header } from '../components/Header/Header';
 import { Spacer } from '../components/Spacer/Spacer.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { loadTopData } from '../store/loadData';
-import { updateReviewsPage, updateTopPage } from '../store/pageReducer';
+import { loadTopData } from '../store/actions/loadData';
+import { updateReviewsPage, updateTopPage } from '../store/reducers/pageReducer';
 
 export const TopListPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const TopListPage: React.FC = () => {
     <>
       <Header />
       <Main>
-        <Spacer />
+        <Spacer margin={4} />
         <Heading size={18}>Top anime</Heading>
         <List items={topData.top} />
         <Paginator page={topPage} onClickPageHandler={onClickPageHandler} />

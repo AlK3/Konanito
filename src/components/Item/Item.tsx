@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledItem } from './Item.styles';
-import { TopListItem } from '../../store/dataReducer';
+import { TopListItem } from '../../store/reducers/dataReducer';
 import { Paragraph } from '../Paragraph/Paragraph';
 import { Rating } from '@material-ui/core';
 

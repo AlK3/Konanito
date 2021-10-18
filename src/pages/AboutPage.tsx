@@ -9,7 +9,7 @@ export const AboutPage: React.FC = () => {
 		<>
 			<Header />
 			<Main>
-				<Spacer />
+				<Spacer margin={4} />
 				<Heading size={18}>About</Heading>
 			</Main>
 		</>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton } from '@material-ui/core';
 import { Color } from '../../enums';
 import { Item } from '../Item/Item';
-import { TopListItem, SearchItem } from '../../store/dataReducer';
+import { TopListItem, SearchItem } from '../../store/reducers/dataReducer';
 
 interface IListProps {
   items: TopListItem[] | SearchItem[];

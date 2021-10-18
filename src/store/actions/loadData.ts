@@ -1,4 +1,4 @@
-import { Action } from "../enums";
+import { Action } from "../../enums";
 
 export const loadTopData = (page: number) => {
   return {
@@ -33,5 +33,19 @@ export const loadTranslateData = (text: string) => {
   return {
     type: Action.LOAD_TRANSLATE_DATA,
     text,
+  };
+}
+
+export const loadEpisodesData = (titleId: string) => {
+  return {
+    type: Action.LOAD_EPISODES_DATA,
+    titleId,
+  };
+}
+
+export const loadRecommendationsData = (titleId: string) => {
+  return {
+    type: Action.LOAD_RECOMMENDATION_DATA,
+    titleId,
   };
 }

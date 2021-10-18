@@ -16,7 +16,7 @@ export const App: React.FC = () => {
           <Route path='/top' component={TopListPage} />
           <Route path='/search' component={SearchPage} />
           <Route path='/:titleId' component={TitlePage} />
-          <Redirect to='/home' />
+          <Redirect to='/top' />
         </Switch>
     </Router>
   );

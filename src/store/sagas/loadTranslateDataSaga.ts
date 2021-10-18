@@ -1,7 +1,7 @@
 import * as Eff from 'redux-saga/effects';
 import { call, put } from '@redux-saga/core/effects';
-import { Action } from '../enums';
-import { updateTranslateData } from './dataReducer';
+import { Action } from '../../enums';
+import { updateTranslateData } from '../reducers/dataReducer';
 
 const takeEvery: any = Eff.takeEvery;
 

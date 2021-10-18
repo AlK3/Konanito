@@ -9,7 +9,7 @@ export const HomePage: React.FC = () => {
 		<>
 			<Header />
 			<Main>
-				<Spacer />
+				<Spacer margin={4} />
 				<Heading size={18}>Home</Heading>
 			</Main>
 		</>
