@@ -5,23 +5,23 @@ import { Paragraph } from '../Paragraph/Paragraph';
 import { Rating } from '@material-ui/core';
 
 interface IItemProps {
-  item: TopListItem;
+  item?: TopListItem;
 }
 
-export const Item: React.FC<IItemProps> = ({item}) => {
+export const Item: React.FC<IItemProps> = ({ item }) => {
   
 	return (
-		<StyledItem to={`/${item.mal_id}`}>
-			{item.rank && <Paragraph>{item.rank}</Paragraph>}
-			<img src={item.image_url} style={{width: '8rem', padding: '.4rem'}} />
+		<StyledItem to={`/${item?.mal_id}`}>
+			{item?.rank && <Paragraph>{item?.rank}</Paragraph>}
+			<img src={item?.image_url} style={{width: '8rem', padding: '.4rem'}} />
       <div>
         <Paragraph>
-          {item.title}
+          {item?.title}
         </Paragraph>
         <Paragraph>
-          {item.type + ' ' + item.episodes + ' episodes'}
+          {item?.type + ' ' + item?.episodes + ' episodes'}
         </Paragraph>
-        <Rating name="no-value" value={item.score/2} />
+        <Rating name="no-value" value={item? item.score / 2 : 0} />
       </div>
 		</StyledItem>
 	);

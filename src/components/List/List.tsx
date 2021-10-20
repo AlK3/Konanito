@@ -5,7 +5,7 @@ import { Item } from '../Item/Item';
 import { TopListItem, SearchItem } from '../../store/reducers/dataReducer';
 
 interface IListProps {
-  items: TopListItem[] | SearchItem[];
+  items?: TopListItem[] | SearchItem[];
 }
 
 export const List: React.FC<IListProps> = ({items}) => {
